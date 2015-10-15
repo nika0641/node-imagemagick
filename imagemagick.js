@@ -395,11 +395,11 @@ exports.resizeArgs = function(options) {
     args.push('-interlace');
     args.push('plane');
   }
-  if (isJPEG || opt.format === 'png') {
+  if ((isJPEG || opt.format === 'png') && opt.quality > 0) {
     args.push('-quality');
     args.push(Math.round(opt.quality * 100.0).toString());
   }
-  else if (opt.format === 'miff' || opt.format === 'mif') {
+  else if ((opt.format === 'miff' || opt.format === 'mif') && opt.quality > 0) {
     args.push('-quality');
     args.push(Math.round(opt.quality * 9.0).toString());
   }
